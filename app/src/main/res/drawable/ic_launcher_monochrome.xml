@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Same geometry as ic_launcher_foreground.xml, flattened to white for Android 13+
+         themed icons — the OS applies its own tint. Kept as a vector, positioned identically,
+         so this can't drift out of sync with the real icon the way a separately-cropped
+         raster copy could. -->
+    <path android:strokeColor="#FFFFFF" android:strokeAlpha="0.4" android:strokeWidth="13.41"
+        android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="#00000000"
+        android:pathData="M28.21,31.31 L50.92,54.00 L28.21,76.70" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="13.41"
+        android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="#00000000"
+        android:pathData="M57.11,31.31 L79.80,54.00 L57.11,76.70" />
+</vector>
