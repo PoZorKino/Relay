@@ -15,8 +15,23 @@ android {
         // 28 on purpose: newer targets forbid exec() of files in app storage (W^X), which the
         // bundled Linux runtime for Claude Code / Codex needs. Sideload-only, like Termux.
         targetSdk = 28
-        versionCode = 1
-        versionName = "1.0"
+        // Overridable by CI (-PrelayVersionCode/-PrelayVersionName) so a tagged release's APK
+        // reports its actual version instead of always "1.0".
+        versionCode = (project.findProperty("relayVersionCode") as String?)?.toIntOrNull() ?: 1
+        versionName = (project.findProperty("relayVersionName") as String?) ?: "1.0"
+    }
+
+    signingConfigs {
+        getByName("debug") {
+            // A fixed keystore (gitignored; CI restores it from a repo secret), not the
+            // ambient per-machine ~/.android/debug.keystore: every build (local or CI) must
+            // sign with the same key, or users can't install an update over a previous one
+            // — see keystore/README.md.
+            storeFile = rootProject.file("keystore/relay-debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
     }
 
     buildTypes {

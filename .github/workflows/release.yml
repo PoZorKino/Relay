@@ -1,0 +1,69 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version name (e.g. 1.1.0) — only used when running this manually, not from a tag push"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Determine version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            VERSION="${{ github.event.inputs.version }}"
+          else
+            VERSION="${GITHUB_REF_NAME#v}"
+          fi
+          echo "name=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      # Not checked in (see keystore/README.md) — every build, local or CI, has to sign with
+      # the same key for users to install an update over a previous release without
+      # uninstalling first, so this decodes to the exact path app/build.gradle.kts expects.
+      - name: Restore signing keystore
+        run: |
+          mkdir -p keystore
+          echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 -d > keystore/relay-debug.keystore
+
+      # versionCode must strictly increase release over release for Android to treat an
+      # install as an upgrade rather than a conflicting package; the run number always does.
+      - name: Build signed release APK
+        run: |
+          ./gradlew assembleRelease \
+            -PrelayVersionName=${{ steps.version.outputs.name }} \
+            -PrelayVersionCode=${{ github.run_number }} \
+            --console=plain
+
+      - name: Rename APK for the release asset
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/release/app-release.apk "dist/Relay-${{ steps.version.outputs.name }}.apk"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.name }}
+          name: Relay ${{ steps.version.outputs.name }}
+          files: dist/Relay-${{ steps.version.outputs.name }}.apk
+          generate_release_notes: true
