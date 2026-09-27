@@ -323,15 +323,20 @@ private fun MessageList(vm: AppViewModel, conn: Connection, model: String?, onPi
         }
     }
 
-    // While the reply streams in, keep following its growth — but only while stickToBottom.
-    // The moment the user drags to read older messages, stop chasing them: since this list
-    // isn't reverseLayout, an older item's on-screen position is stable and unaffected by the
-    // still-growing last message, so their scroll position simply holds.
+    // While the reply grows, keep following it — but only while stickToBottom. The moment the
+    // user drags to read older messages, stop chasing them: since this list isn't reverseLayout,
+    // an older item's on-screen position is stable and unaffected by the still-growing last
+    // message, so their scroll position simply holds.
+    //
+    // Watches both text and tool-call count (a tool call with nothing revealed yet grows the
+    // item without touching text), and isn't gated on vm.streaming: stop() flips that flag
+    // synchronously, before the cancelled stream's finally block flushes the last buffered
+    // chunk, so gating on it here would miss that final growth. Keying only on the message's
+    // id means it just keeps watching for as long as this message is the last one.
     val streamingTarget = msgs.lastOrNull()
     if (streamingTarget != null) {
-        LaunchedEffect(streamingTarget.id, vm.streaming) {
-            if (!vm.streaming) return@LaunchedEffect
-            snapshotFlow { streamingTarget.text.length }.collect {
+        LaunchedEffect(streamingTarget.id) {
+            snapshotFlow { streamingTarget.text.length to streamingTarget.tools.size }.collect {
                 if (stickToBottom) state.scrollToItem(bottomIndex, scrollOffset = Int.MAX_VALUE)
             }
         }
