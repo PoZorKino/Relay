@@ -1,5 +1,7 @@
 # Relay
 
+![Relay](assets/banner.png)
+
 An Android chat app for your own model endpoints **and** your Claude / ChatGPT subscriptions.
 Written in Kotlin with Jetpack Compose.
 
