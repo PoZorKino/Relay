@@ -2,4 +2,9 @@
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@color/ic_launcher_background" />
     <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <!-- Android 13+ "themed icons": without this, launchers that support it auto-generate one
+         by cropping to the foreground's own content bounds and rescaling to fill their shape,
+         which ignores the safe-zone padding entirely. Same crop/scale/position as the
+         foreground, just flattened to white — the OS applies its own tint. -->
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome" />
 </adaptive-icon>
