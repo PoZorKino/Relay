@@ -12,6 +12,14 @@ Written in Kotlin with Jetpack Compose.
 - **4 themes:** Classic, Midnight, Terminal, Lilac.
 - **Languages:** English, Русский, Українська (follows the system, or pick one in Connections).
 
+## Screenshots
+
+|                                       Chat                                      |                                Terminal theme                               |
+| :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+| ![Chat](assets/screenshots/chat-classic.png)                                      | ![Terminal theme](assets/screenshots/chat-terminal.png)                       |
+|                                    Connections                                   |                                  Model picker                                 |
+| ![Connections](assets/screenshots/connections-lilac.png)                          | ![Model picker](assets/screenshots/model-picker.png)                          |
+
 ## Install
 
 Download the APK from [Releases](../../releases) and open it on the phone. Android will ask you to allow installing from that source, and Play Protect may warn that the app was built for an older version of Android. That's expected (see below).
