@@ -42,9 +42,12 @@ import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -290,9 +293,49 @@ private fun EmptyState(onAdd: () -> Unit) {
 private fun MessageList(vm: AppViewModel, conn: Connection, model: String?, onPickModel: () -> Unit) {
     val state = rememberLazyListState()
     val msgs = vm.messages
-    // Newest first + reverseLayout keeps the view pinned to the bottom while text streams in.
-    val reversed = msgs.asReversed()
-    LaunchedEffect(msgs.size) { if (msgs.isNotEmpty()) state.animateScrollToItem(0) }
+    // Bottom index = the trailing "endpoint" item, one past the last message.
+    val bottomIndex = msgs.size
+
+    // Whether we should keep auto-following new text to the bottom. Turned off the instant the
+    // user drags (so we never fight a manual scroll), and turned back on once the list comes to
+    // rest at the true bottom again — whether they scrolled back down themselves, flung it back,
+    // or we just landed there ourselves. Without that second half, touching the list even once
+    // disables auto-follow for the rest of that reply, which is its own bug.
+    var stickToBottom by remember { mutableStateOf(true) }
+    LaunchedEffect(state) {
+        state.interactionSource.interactions.collect { interaction ->
+            if (interaction is DragInteraction.Start) stickToBottom = false
+        }
+    }
+    LaunchedEffect(state) {
+        snapshotFlow { state.isScrollInProgress }.collect { inProgress ->
+            if (!inProgress && !state.canScrollForward) stickToBottom = true
+        }
+    }
+
+    // A brand-new turn (user message, then the assistant placeholder) always resumes following
+    // and jumps to bottom, regardless of where the user was previously scrolled. The new item
+    // is empty at this point, so animating it to the top of the viewport already lands at the bottom.
+    LaunchedEffect(msgs.size) {
+        if (msgs.isNotEmpty()) {
+            stickToBottom = true
+            state.animateScrollToItem(bottomIndex)
+        }
+    }
+
+    // While the reply streams in, keep following its growth — but only while stickToBottom.
+    // The moment the user drags to read older messages, stop chasing them: since this list
+    // isn't reverseLayout, an older item's on-screen position is stable and unaffected by the
+    // still-growing last message, so their scroll position simply holds.
+    val streamingTarget = msgs.lastOrNull()
+    if (streamingTarget != null) {
+        LaunchedEffect(streamingTarget.id, vm.streaming) {
+            if (!vm.streaming) return@LaunchedEffect
+            snapshotFlow { streamingTarget.text.length }.collect {
+                if (stickToBottom) state.scrollToItem(bottomIndex, scrollOffset = Int.MAX_VALUE)
+            }
+        }
+    }
 
     val theme = Relay.theme
     val padding = when (theme) {
@@ -306,20 +349,10 @@ private fun MessageList(vm: AppViewModel, conn: Connection, model: String?, onPi
         val contentWidth = maxWidth - 32.dp
         LazyColumn(
             state = state,
-            reverseLayout = true,
             modifier = Modifier.fillMaxSize(),
             contentPadding = padding,
-            verticalArrangement = Arrangement.spacedBy(gap, Alignment.Top),
+            verticalArrangement = Arrangement.spacedBy(gap, Alignment.Bottom),
         ) {
-            items(reversed, key = { it.id }) { m ->
-                when {
-                    theme == ThemeId.Terminal -> TerminalMessage(m)
-                    m.role == ChatRole.User -> Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
-                        UserBubble(m, Modifier.widthIn(max = contentWidth * 0.78f))
-                    }
-                    else -> AssistantMessage(m, contentWidth * 0.92f)
-                }
-            }
             item(key = "endpoint") {
                 Column(
                     horizontalAlignment = if (theme == ThemeId.Terminal) Alignment.Start else Alignment.CenterHorizontally,
@@ -349,6 +382,15 @@ private fun MessageList(vm: AppViewModel, conn: Connection, model: String?, onPi
                             style = ts(14f, 600, Relay.AccentText),
                         )
                     }
+                }
+            }
+            items(msgs, key = { it.id }) { m ->
+                when {
+                    theme == ThemeId.Terminal -> TerminalMessage(m)
+                    m.role == ChatRole.User -> Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+                        UserBubble(m, Modifier.widthIn(max = contentWidth * 0.78f))
+                    }
+                    else -> AssistantMessage(m, contentWidth * 0.92f)
                 }
             }
         }
