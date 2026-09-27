@@ -16,7 +16,11 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      # Default `packages` includes the legacy "tools" package, which Google removed from the
+      # SDK repo — installing it always fails now. Just accept licenses + platform-tools.
       - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - uses: gradle/actions/setup-gradle@v4
 
