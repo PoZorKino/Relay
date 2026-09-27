@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common -->
+    <string name="menu">Меню</string>
+    <string name="new_chat">Новый чат</string>
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="close">Закрыть</string>
+    <string name="back">Назад</string>
+    <string name="back_to_chat">Назад к чату</string>
+    <string name="send">Отправить</string>
+    <string name="stop">Остановить</string>
+    <string name="selected">Выбрано</string>
+    <string name="failed">Ошибка</string>
+    <string name="manage">Управлять</string>
+    <string name="sign_in">Войти</string>
+    <string name="badge_default">По умолчанию</string>
+    <string name="badge_api_key">API-ключ</string>
+    <string name="badge_subscription">Подписка</string>
+    <string name="try_again">Попробовать снова</string>
+    <string name="tap_to_fix">%1$s · нажмите, чтобы исправить</string>
+    <string name="tap_to_retry">%1$s · нажмите, чтобы повторить</string>
+    <string name="add_connection">Добавить API-ключ или base URL</string>
+    <string name="term_add_connection">+ добавить ключ / base_url</string>
+
+    <!-- Chat -->
+    <string name="no_model">Нет модели</string>
+    <string name="choose_model">Выберите модель</string>
+    <string name="message_to">Сообщение для %1$s…</string>
+    <string name="message_empty">Сообщение…</string>
+    <string name="term_message_to">сообщение для %1$s</string>
+    <string name="term_message_empty">сообщение</string>
+    <string name="pill_api">%1$s · API-ключ</string>
+    <string name="pill_plan">%1$s · Подписка</string>
+    <string name="pill_add">Добавьте подключение</string>
+    <string name="term_pill_key">\@%1$s · ключ</string>
+    <string name="term_pill_plan">\@%1$s · подписка</string>
+    <string name="term_pill_none">\@нет · добавьте подключение</string>
+    <string name="empty_title">Подключите модель</string>
+    <string name="empty_body">Используйте свой API-ключ и адрес сервера — подойдёт и локальный сервер.</string>
+    <string name="term_empty_body"># подключений пока нет. добавьте ключ или base_url.</string>
+    <string name="on_this_phone">%1$s · на этом телефоне</string>
+    <string name="no_models_loaded_from">Модели из %1$s ещё не загружены.</string>
+    <plurals name="tokens">
+        <item quantity="one">%d токен</item>
+        <item quantity="few">%d токена</item>
+        <item quantity="many">%d токенов</item>
+        <item quantity="other">%d токена</item>
+    </plurals>
+    <string name="seconds">%1$.1f с</string>
+    <string name="tool_ran_python">Запустил Python</string>
+    <string name="tool_ran_command">Выполнил команду</string>
+    <string name="tool_web_search">Поиск в интернете</string>
+    <string name="tool_web_fetch">Прочитал веб-страницу</string>
+    <string name="tool_read">Прочитал файл</string>
+    <string name="tool_write">Записал файл</string>
+    <string name="tool_edit">Изменил файл</string>
+    <string name="tool_search_files">Поиск по файлам</string>
+    <string name="tool_setup">Установка Python (один раз)</string>
+    <string name="tool_used">Использовал %1$s</string>
+    <string name="show_details">Показать подробности</string>
+    <string name="hide_details">Скрыть подробности</string>
+    <plurals name="more_lines">
+        <item quantity="one">… ещё %d строка</item>
+        <item quantity="few">… ещё %d строки</item>
+        <item quantity="many">… ещё %d строк</item>
+        <item quantity="other">… ещё %d строки</item>
+    </plurals>
+    <string name="attach_file">Прикрепить файл</string>
+    <string name="remove_attachment">Убрать вложение</string>
+    <string name="attachment">вложение</string>
+    <string name="read_failed">Не удалось прочитать %1$s</string>
+    <string name="file_too_large">%1$s слишком большой (максимум 200 КБ)</string>
+    <string name="not_text_file">%1$s — не текстовый файл</string>
+    <string name="choose_model_first">Сначала выберите модель</string>
+
+    <!-- Connections -->
+    <string name="connections">Подключения</string>
+    <string name="connections_subtitle">Войдите с подпиской или используйте свой API-ключ и адрес сервера. Можно и то и другое — все модели в одном списке.</string>
+    <string name="connections_subtitle_short">Войдите с подпиской или используйте свой API-ключ и адрес сервера. Все модели в одном списке.</string>
+    <string name="term_connections_subtitle"># подписки или свой ключ + base_url. все модели в одном списке.</string>
+    <string name="term_back">&lt; назад</string>
+    <string name="section_api">API-ключи и серверы</string>
+    <string name="section_subscriptions">Подписки</string>
+    <string name="section_theme">Тема</string>
+    <string name="section_language">Язык</string>
+    <string name="section_models">Модели</string>
+    <string name="keys_note">Ключи хранятся в защищённом хранилище устройства и отправляются только на указанный вами base URL.</string>
+    <string name="term_keys_note"># ключи хранятся в хранилище устройства; отправляются только на свой base_url.</string>
+    <plurals name="models_count">
+        <item quantity="one">%d модель</item>
+        <item quantity="few">%d модели</item>
+        <item quantity="many">%d моделей</item>
+        <item quantity="other">%d модели</item>
+    </plurals>
+    <string name="no_models_yet">моделей пока нет</string>
+    <string name="default_url_no_key">Base URL по умолчанию · без ключа</string>
+    <string name="default_url_key">Base URL по умолчанию · ключ %1$s</string>
+    <string name="compat_no_key">%1$s · %2$s · без ключа</string>
+    <string name="key_and_models">Ключ %1$s · %2$s</string>
+    <string name="term_status_default">● по умолчанию</string>
+    <string name="term_status_ok">● ok</string>
+    <string name="term_tap_to_fix">%1$s — нажмите, чтобы исправить</string>
+    <string name="not_connected">Не подключено</string>
+    <string name="signed_in_via">Вход выполнен · через %1$s</string>
+    <string name="term_manage">управлять</string>
+    <string name="term_login">войти</string>
+    <string name="plan_claude">Подписка Claude</string>
+    <string name="plan_codex">Подписка ChatGPT</string>
+    <string name="language_system">Системный</string>
+
+    <!-- API formats -->
+    <string name="format_openai">Формат OpenAI</string>
+    <string name="format_anthropic">Формат Anthropic</string>
+    <string name="format_gemini">Формат Gemini</string>
+    <string name="compat_openai">Совместим с OpenAI</string>
+    <string name="compat_anthropic">Совместим с Anthropic</string>
+    <string name="compat_gemini">Совместим с Gemini</string>
+
+    <!-- Add / edit connection -->
+    <string name="new_connection">Новое подключение</string>
+    <string name="edit_connection">Изменить подключение</string>
+    <string name="field_name">Название</string>
+    <string name="field_format">Формат API</string>
+    <string name="field_base_url">Base URL</string>
+    <string name="presets">Шаблоны:</string>
+    <string name="preset_default">По умолчанию</string>
+    <string name="field_api_key">API-ключ</string>
+    <string name="api_key_optional">Необязателен для локальных серверов</string>
+    <string name="paste_clipboard">Вставить из буфера обмена</string>
+    <string name="show_key">Показать ключ</string>
+    <string name="hide_key">Скрыть ключ</string>
+    <string name="advanced">Дополнительно · заголовки, тайм-аут, список моделей</string>
+    <string name="extra_headers">Дополнительные заголовки (по одному в строке)</string>
+    <string name="timeout_seconds">Тайм-аут (секунды)</string>
+    <string name="model_list_fallback">Список моделей (если /models недоступен)</string>
+    <string name="test_connection">Проверить подключение</string>
+    <string name="testing">Проверка…</string>
+    <string name="make_default">Сделать основным</string>
+    <string name="default_connection">Основное подключение</string>
+    <string name="connected_status">Подключено · %1$s · %2$d мс</string>
+    <plurals name="found_models_at">
+        <item quantity="one">Найдена %d модель в </item>
+        <item quantity="few">Найдено %d модели в </item>
+        <item quantity="many">Найдено %d моделей в </item>
+        <item quantity="other">Найдено %d модели в </item>
+    </plurals>
+    <plurals name="n_more">
+        <item quantity="one">ещё %d</item>
+        <item quantity="few">ещё %d</item>
+        <item quantity="many">ещё %d</item>
+        <item quantity="other">ещё %d</item>
+    </plurals>
+    <string name="couldnt_connect">Не удалось подключиться · %1$s</string>
+    <string name="connection_fallback_name">Подключение</string>
+
+    <!-- Plan setup -->
+    <string name="no_browser">Не найден браузер, чтобы открыть страницу входа</string>
+    <string name="plan_intro">Relay запускает официальное приложение %1$s на этом телефоне в изолированной среде Linux и входит с вашей подпиской %2$s. Root не нужен. Первая настройка загружает около 100–200 МБ.</string>
+    <string name="term_plan_intro"># relay запускает официальный cli %1$s на этом телефоне и входит с вашей подпиской %2$s. без root.</string>
+    <string name="plan_unsupported">Подписки работают через официальный CLI в среде Linux на устройстве, для этого нужен телефон на ARM64. Это устройство (x86_64, например эмулятор или Chromebook) его не поддерживает — используйте API-ключ.</string>
+    <string name="update_cli">Обновить %1$s</string>
+    <string name="updating_cli">Обновление %1$s…</string>
+    <string name="sign_in_again">Войти заново</string>
+    <string name="sign_out_of">Выйти из %1$s</string>
+    <string name="step_runtime">Среда Linux</string>
+    <string name="step_runtime_detail">Alpine Linux в собственном хранилище Relay</string>
+    <string name="step_install">Установка %1$s</string>
+    <string name="step_install_claude">Официальный установщик с claude.ai</string>
+    <string name="step_install_codex">Официальный релиз с github.com/openai/codex</string>
+    <string name="step_sign_in">Вход через %1$s</string>
+    <string name="step_sign_in_claude">Откроется браузер</string>
+    <string name="step_sign_in_codex">Введите код в браузере</string>
+    <string name="setup_failed">Не удалось настроить</string>
+    <string name="signed_in_done">Вход выполнен · модели %1$s есть в списке моделей.</string>
+    <string name="start_chatting">Начать чат</string>
+    <string name="set_up_sign_in">Настроить и войти</string>
+    <string name="enter_code">Введите этот код на странице входа:</string>
+    <string name="copy_code_open">Скопировать код и открыть страницу</string>
+    <string name="finish_in_browser">Завершите вход в браузере и вернитесь сюда.</string>
+    <string name="open_sign_in">Открыть страницу входа</string>
+    <string name="waiting_for">Ожидание %1$s…</string>
+    <string name="paste_code_hint">Если на странице показан код, вставьте его сюда:</string>
+    <string name="auth_code">Код авторизации</string>
+    <string name="sign_in_again_suffix">%1$s · войдите заново</string>
+    <plurals name="signed_in_models">
+        <item quantity="one">Вход выполнен · %d модель</item>
+        <item quantity="few">Вход выполнен · %d модели</item>
+        <item quantity="many">Вход выполнен · %d моделей</item>
+        <item quantity="other">Вход выполнен · %d модели</item>
+    </plurals>
+    <string name="tools_title">Инструменты</string>
+    <string name="tools_body">Поиск в интернете, запуск Python и команд, чтение и запись файлов — внутри изолированной среды Relay.</string>
+    <string name="models_codex_note">Из каталога установленного Codex. При необходимости добавьте другие ниже.</string>
+    <string name="models_claude_note">Актуальные модели Claude и псевдонимы Claude Code. Добавьте другие ID ниже, если они есть в вашей подписке.</string>
+
+    <!-- History drawer -->
+    <string name="chats">Чаты</string>
+    <string name="term_new_chat">новый чат</string>
+    <string name="no_chats">Здесь появятся ваши чаты.</string>
+    <string name="term_no_chats"># сохранённых чатов пока нет</string>
+    <string name="open_chat">Открыть чат</string>
+    <string name="delete_chat">Удалить чат</string>
+    <string name="connections_and_theme">Подключения и тема</string>
+    <string name="term_connections">подключения</string>
+    <string name="delete_chat_question">Удалить этот чат?</string>
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="previous_7_days">Последние 7 дней</string>
+    <string name="older">Ранее</string>
+
+    <!-- Model picker -->
+    <plurals name="search_models">
+        <item quantity="one">Поиск среди %d модели</item>
+        <item quantity="few">Поиск среди %d моделей</item>
+        <item quantity="many">Поиск среди %d моделей</item>
+        <item quantity="other">Поиск среди %d модели</item>
+    </plurals>
+    <string name="no_models_loaded">Модели не загружены</string>
+    <string name="connect_another">Подключить другой сервер</string>
+
+    <!-- Background work -->
+    <string name="notif_replying">%1$s отвечает…</string>
+    <string name="notif_setting_up">Настройка %1$s…</string>
+    <string name="notif_updating">Обновление %1$s…</string>
+    <string name="notif_channel">Фоновые задачи</string>
+    <string name="sign_in_incomplete">Вход не завершён.</string>
+
+    <!-- Errors (API / CLI) -->
+    <string name="err_key_rejected">Ключ отклонён (%1$s)</string>
+    <string name="err_not_found">Не найдено (404)</string>
+    <string name="err_rate_limited">Превышен лимит запросов (429)</string>
+    <string name="err_http">HTTP %1$s</string>
+    <string name="err_unknown_host">Неизвестный хост</string>
+    <string name="err_cant_reach">Сервер недоступен</string>
+    <string name="err_timed_out">Истекло время ожидания</string>
+    <string name="err_network">Ошибка сети</string>
+    <string name="err_invalid_url">Неверный base URL</string>
+    <string name="err_unexpected">Неожиданный ответ</string>
+    <string name="err_signed_out">Выполнен выход</string>
+    <string name="err_server">Ошибка сервера</string>
+    <string name="err_cli">Ошибка %1$s</string>
+    <string name="err_load_models">Не удалось загрузить модели</string>
+</resources>

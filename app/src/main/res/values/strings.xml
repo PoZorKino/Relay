@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Relay</string>
+
+    <!-- Common -->
+    <string name="menu">Menu</string>
+    <string name="new_chat">New chat</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="close">Close</string>
+    <string name="back">Back</string>
+    <string name="back_to_chat">Back to chat</string>
+    <string name="send">Send</string>
+    <string name="stop">Stop</string>
+    <string name="selected">Selected</string>
+    <string name="failed">Failed</string>
+    <string name="manage">Manage</string>
+    <string name="sign_in">Sign in</string>
+    <string name="badge_default">Default</string>
+    <string name="badge_api_key">API key</string>
+    <string name="badge_subscription">Subscription</string>
+    <string name="try_again">Try again</string>
+    <string name="tap_to_fix">%1$s · tap to fix</string>
+    <string name="tap_to_retry">%1$s · tap to retry</string>
+    <string name="add_connection">Add API key or base URL</string>
+    <string name="term_add_connection">+ add key / base_url</string>
+
+    <!-- Chat -->
+    <string name="no_model">No model</string>
+    <string name="choose_model">Choose a model</string>
+    <string name="message_to">Message %1$s…</string>
+    <string name="message_empty">Message…</string>
+    <string name="term_message_to">message %1$s</string>
+    <string name="term_message_empty">message</string>
+    <string name="pill_api">%1$s · API key</string>
+    <string name="pill_plan">%1$s · Subscription</string>
+    <string name="pill_add">Add a connection</string>
+    <string name="term_pill_key">\@%1$s · key</string>
+    <string name="term_pill_plan">\@%1$s · plan</string>
+    <string name="term_pill_none">\@none · add a connection</string>
+    <string name="empty_title">Connect a model</string>
+    <string name="empty_body">Bring your own API key and endpoint — a local server works too.</string>
+    <string name="term_empty_body"># no connections yet. add a key or a base_url to start.</string>
+    <string name="on_this_phone">%1$s · on this phone</string>
+    <string name="no_models_loaded_from">No models loaded from %1$s yet.</string>
+    <plurals name="tokens">
+        <item quantity="one">%d token</item>
+        <item quantity="other">%d tokens</item>
+    </plurals>
+    <string name="seconds">%1$.1f s</string>
+    <string name="tool_ran_python">Ran Python</string>
+    <string name="tool_ran_command">Ran a command</string>
+    <string name="tool_web_search">Searched the web</string>
+    <string name="tool_web_fetch">Read a web page</string>
+    <string name="tool_read">Read a file</string>
+    <string name="tool_write">Wrote a file</string>
+    <string name="tool_edit">Edited a file</string>
+    <string name="tool_search_files">Searched files</string>
+    <string name="tool_setup">Installing Python (one-time)</string>
+    <string name="tool_used">Used %1$s</string>
+    <string name="show_details">Show details</string>
+    <string name="hide_details">Hide details</string>
+    <plurals name="more_lines">
+        <item quantity="one">… %d more line</item>
+        <item quantity="other">… %d more lines</item>
+    </plurals>
+    <string name="attach_file">Attach file</string>
+    <string name="remove_attachment">Remove attachment</string>
+    <string name="attachment">attachment</string>
+    <string name="read_failed">Couldn\'t read %1$s</string>
+    <string name="file_too_large">%1$s is too large (200 KB max)</string>
+    <string name="not_text_file">%1$s isn\'t a text file</string>
+    <string name="choose_model_first">Choose a model first</string>
+
+    <!-- Connections -->
+    <string name="connections">Connections</string>
+    <string name="connections_subtitle">Sign in with a plan, or bring your own API key and endpoint. Mix both — every model shows up in one picker.</string>
+    <string name="connections_subtitle_short">Sign in with a plan, or bring your own API key and endpoint. Every model shows up in one picker.</string>
+    <string name="term_connections_subtitle"># subscriptions or your own key + base_url. all models land in one picker.</string>
+    <string name="term_back">&lt; back</string>
+    <string name="section_api">API keys &amp; endpoints</string>
+    <string name="section_subscriptions">Subscriptions</string>
+    <string name="section_theme">Theme</string>
+    <string name="section_language">Language</string>
+    <string name="section_models">Models</string>
+    <string name="keys_note">Keys stay in the device keychain and are sent only to the base URL you set.</string>
+    <string name="term_keys_note"># keys live in the device keychain; sent only to their base_url.</string>
+    <plurals name="models_count">
+        <item quantity="one">%d model</item>
+        <item quantity="other">%d models</item>
+    </plurals>
+    <string name="no_models_yet">no models yet</string>
+    <string name="default_url_no_key">Default base URL · no key</string>
+    <string name="default_url_key">Default base URL · key %1$s</string>
+    <string name="compat_no_key">%1$s · %2$s · no key</string>
+    <string name="key_and_models">Key %1$s · %2$s</string>
+    <string name="term_status_default">● default</string>
+    <string name="term_status_ok">● ok</string>
+    <string name="term_tap_to_fix">%1$s — tap to fix</string>
+    <string name="not_connected">Not connected</string>
+    <string name="signed_in_via">Signed in · via %1$s</string>
+    <string name="term_manage">manage</string>
+    <string name="term_login">login</string>
+    <string name="plan_claude">Claude plan</string>
+    <string name="plan_codex">ChatGPT plan</string>
+    <string name="language_system">System</string>
+
+    <!-- API formats -->
+    <string name="format_openai">OpenAI-style</string>
+    <string name="format_anthropic">Anthropic-style</string>
+    <string name="format_gemini">Gemini-style</string>
+    <string name="compat_openai">OpenAI-compatible</string>
+    <string name="compat_anthropic">Anthropic-compatible</string>
+    <string name="compat_gemini">Gemini-compatible</string>
+
+    <!-- Add / edit connection -->
+    <string name="new_connection">New connection</string>
+    <string name="edit_connection">Edit connection</string>
+    <string name="field_name">Name</string>
+    <string name="field_format">API format</string>
+    <string name="field_base_url">Base URL</string>
+    <string name="presets">Presets:</string>
+    <string name="preset_default">Default</string>
+    <string name="field_api_key">API key</string>
+    <string name="api_key_optional">Optional for local servers</string>
+    <string name="paste_clipboard">Paste from clipboard</string>
+    <string name="show_key">Show key</string>
+    <string name="hide_key">Hide key</string>
+    <string name="advanced">Advanced · headers, timeout, model list</string>
+    <string name="extra_headers">Extra headers (one per line)</string>
+    <string name="timeout_seconds">Timeout (seconds)</string>
+    <string name="model_list_fallback">Model list (used if /models isn\'t available)</string>
+    <string name="test_connection">Test connection</string>
+    <string name="testing">Testing…</string>
+    <string name="make_default">Make default</string>
+    <string name="default_connection">Default connection</string>
+    <string name="connected_status">Connected · %1$s · %2$d ms</string>
+    <plurals name="found_models_at">
+        <item quantity="one">Found %d model at </item>
+        <item quantity="other">Found %d models at </item>
+    </plurals>
+    <plurals name="n_more">
+        <item quantity="one">+%d more</item>
+        <item quantity="other">+%d more</item>
+    </plurals>
+    <string name="couldnt_connect">Couldn\'t connect · %1$s</string>
+    <string name="connection_fallback_name">Connection</string>
+
+    <!-- Plan setup -->
+    <string name="no_browser">No browser found to open the sign-in page</string>
+    <string name="plan_intro">Relay runs the official %1$s app on this phone, in a private Linux sandbox, and signs in with your %2$s subscription. No root needed. First setup downloads about 100–200 MB.</string>
+    <string name="term_plan_intro"># relay runs the official %1$s cli on this phone and signs in with your %2$s plan. no root.</string>
+    <string name="plan_unsupported">Subscriptions run the official CLI in an on-device Linux sandbox, which needs an ARM64 phone. This device (x86_64, e.g. an emulator or Chromebook) can\'t run it — use an API key instead.</string>
+    <string name="update_cli">Update %1$s</string>
+    <string name="updating_cli">Updating %1$s…</string>
+    <string name="sign_in_again">Sign in again</string>
+    <string name="sign_out_of">Sign out of %1$s</string>
+    <string name="step_runtime">Linux sandbox</string>
+    <string name="step_runtime_detail">Alpine Linux in Relay\'s own storage</string>
+    <string name="step_install">Install %1$s</string>
+    <string name="step_install_claude">Official installer from claude.ai</string>
+    <string name="step_install_codex">Official release from github.com/openai/codex</string>
+    <string name="step_sign_in">Sign in with %1$s</string>
+    <string name="step_sign_in_claude">Opens your browser</string>
+    <string name="step_sign_in_codex">Enter a code in your browser</string>
+    <string name="setup_failed">Setup failed</string>
+    <string name="signed_in_done">Signed in · %1$s models are in the model picker.</string>
+    <string name="start_chatting">Start chatting</string>
+    <string name="set_up_sign_in">Set up and sign in</string>
+    <string name="enter_code">Enter this code on the sign-in page:</string>
+    <string name="copy_code_open">Copy code and open page</string>
+    <string name="finish_in_browser">Finish signing in in your browser, then come back here.</string>
+    <string name="open_sign_in">Open sign-in page</string>
+    <string name="waiting_for">Waiting for %1$s…</string>
+    <string name="paste_code_hint">If the page shows a code, paste it here:</string>
+    <string name="auth_code">Authorization code</string>
+    <string name="sign_in_again_suffix">%1$s · sign in again</string>
+    <plurals name="signed_in_models">
+        <item quantity="one">Signed in · %d model</item>
+        <item quantity="other">Signed in · %d models</item>
+    </plurals>
+    <string name="tools_title">Tools</string>
+    <string name="tools_body">Web search, running Python and shell commands, reading and writing files — inside Relay\'s sandbox.</string>
+    <string name="models_codex_note">From the installed Codex\'s own catalog. Add others below if needed.</string>
+    <string name="models_claude_note">Current Claude models and Claude Code\'s aliases. Add other IDs below if your plan has them.</string>
+
+    <!-- History drawer -->
+    <string name="chats">Chats</string>
+    <string name="term_new_chat">new chat</string>
+    <string name="no_chats">Your chats will show up here.</string>
+    <string name="term_no_chats"># no saved chats yet</string>
+    <string name="open_chat">Open chat</string>
+    <string name="delete_chat">Delete chat</string>
+    <string name="connections_and_theme">Connections &amp; theme</string>
+    <string name="term_connections">connections</string>
+    <string name="delete_chat_question">Delete this chat?</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="previous_7_days">Previous 7 days</string>
+    <string name="older">Older</string>
+
+    <!-- Model picker -->
+    <plurals name="search_models">
+        <item quantity="one">Search %d model</item>
+        <item quantity="other">Search %d models</item>
+    </plurals>
+    <string name="no_models_loaded">No models loaded</string>
+    <string name="connect_another">Connect another endpoint</string>
+
+    <!-- Background work -->
+    <string name="notif_replying">%1$s is replying…</string>
+    <string name="notif_setting_up">Setting up %1$s…</string>
+    <string name="notif_updating">Updating %1$s…</string>
+    <string name="notif_channel">Background tasks</string>
+    <string name="sign_in_incomplete">Sign-in didn\'t complete.</string>
+
+    <!-- Errors (API / CLI) -->
+    <string name="err_key_rejected">Key rejected (%1$s)</string>
+    <string name="err_not_found">Not found (404)</string>
+    <string name="err_rate_limited">Rate limited (429)</string>
+    <string name="err_http">HTTP %1$s</string>
+    <string name="err_unknown_host">Unknown host</string>
+    <string name="err_cant_reach">Can\'t reach server</string>
+    <string name="err_timed_out">Timed out</string>
+    <string name="err_network">Network error</string>
+    <string name="err_invalid_url">Invalid base URL</string>
+    <string name="err_unexpected">Unexpected response</string>
+    <string name="err_signed_out">Signed out</string>
+    <string name="err_server">Server error</string>
+    <string name="err_cli">%1$s error</string>
+    <string name="err_load_models">Couldn\'t load models</string>
+</resources>

@@ -1,0 +1,9 @@
+Prebuilt proot runtime, from the Termux package repository (packages.termux.dev,
+termux-main, stable). Each .deb's SHA-256 was checked against that repo's Packages
+index before extraction.
+
+  proot             5.1.107.95   (GPL-2.0)  https://github.com/termux/proot
+  libtalloc         2.4.3        (LGPL-3.0) https://talloc.samba.org
+  libandroid-shmem  0.7          (BSD-3)    https://github.com/termux/libandroid-shmem
+
+ABI dirs: aarch64 only (see LinuxRuntime.arch). Files: proot, loader (libexec/proot/loader), libtalloc.so.2, libandroid-shmem.so
