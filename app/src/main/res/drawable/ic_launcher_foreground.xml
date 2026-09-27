@@ -1,17 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relay launcher foreground. 108dp canvas; artwork sits inside the 66dp safe zone. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp" android:height="108dp"
-    android:viewportWidth="108" android:viewportHeight="108">
-    <!--
-        The "»" mark, transcribed from the approved relay-icon.svg (1024x1024, local chevron
-        geometry M24,28 L46,50 L24,72 / M52,28 L74,50 L52,72, stroke-width 13, back chevron at
-        stroke-opacity 0.4) and re-fit to Android's adaptive-icon safe zone: visual bounds
-        (path bbox expanded by stroke-width/2 for the round caps/joins) scaled from 63x57 to a
-        65-wide target — the standard ~66dp safe-zone diameter — and centered in the 108 canvas.
-    -->
-    <path android:strokeColor="#9D7BFF" android:strokeAlpha="0.4" android:strokeWidth="13.41"
-        android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="#00000000"
-        android:pathData="M28.21,31.31 L50.92,54.00 L28.21,76.70" />
-    <path android:strokeColor="#9D7BFF" android:strokeWidth="13.41"
-        android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="#00000000"
-        android:pathData="M57.11,31.31 L79.80,54.00 L57.11,76.70" />
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:translateX="19.7"
+        android:translateY="19"
+        android:scaleX="0.7"
+        android:scaleY="0.7">
+        <path
+            android:pathData="M24,28 L46,50 L24,72"
+            android:strokeColor="#9D7BFF"
+            android:strokeAlpha="0.4"
+            android:strokeWidth="13"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M52,28 L74,50 L52,72"
+            android:strokeColor="#9D7BFF"
+            android:strokeWidth="13"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
 </vector>
