@@ -22,11 +22,12 @@ android {
     }
 
     signingConfigs {
-        getByName("debug") {
-            // A fixed keystore (gitignored; CI restores it from a repo secret), not the
-            // ambient per-machine ~/.android/debug.keystore: every build (local or CI) must
-            // sign with the same key, or users can't install an update over a previous one
-            // — see keystore/README.md.
+        // Separate from the built-in "debug" config on purpose: that one keeps using AGP's
+        // ambient ~/.android/debug.keystore (auto-created, no external dependency), which is
+        // fine for local dev builds and CI's plain `assembleDebug` — nobody upgrades over
+        // those. Only the release APK actually ships to users, so only it needs every build
+        // signed with the same fixed key — see keystore/README.md.
+        create("release") {
             storeFile = rootProject.file("keystore/relay-debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
@@ -37,8 +38,8 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            // Signed with the debug key so the release APK is installable as-is.
-            signingConfig = signingConfigs.getByName("debug")
+            // Debug-signed (not a real release key) so the APK installs as-is when sideloaded.
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
